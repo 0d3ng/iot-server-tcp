@@ -20,8 +20,7 @@ class ClientThread(Thread):
 
                 print("length: " + str(len(data)))
                 print("Server received data:", data)
-                # MESSAGE = input("Input response:")
-                MESSAGE = "OK"
+                MESSAGE = input("Input response:")
                 conn.send(MESSAGE.encode("utf8"))  # echo
             except Exception as e:
                 print(e)
