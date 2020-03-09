@@ -1,6 +1,6 @@
 import socket
 from threading import Thread
-
+from time import *
 
 # Multithreaded Python server
 class ClientThread(Thread):
@@ -14,18 +14,12 @@ class ClientThread(Thread):
     def run(self):
         while True:
             try:
-                data = conn.recv(2048)
-                if len(data) == 0:
-                    break
-
-                print("length: " + str(len(data)))
-                print("Server received data:", data)
                 MESSAGE = input("Input response:")
                 conn.send(MESSAGE.encode("utf8"))  # echo
             except Exception as e:
                 print(e)
                 break
-
+            sleep(0.25)
 
 TCP_IP = "192.168.43.85"
 TCP_PORT = 2004
