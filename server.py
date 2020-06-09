@@ -1,6 +1,7 @@
 import socket
 from threading import Thread
 from time import *
+from aes_example import *
 
 # Multithreaded Python server
 class ClientThread(Thread):
@@ -14,14 +15,21 @@ class ClientThread(Thread):
     def run(self):
         while True:
             try:
-                MESSAGE = input("Input response:")
-                conn.send(MESSAGE.encode("utf8"))  # echo
+                data = conn.recv(2048)
+                if len(data) == 0:
+                    break
+                print("length: " + str(len(data)))
+                print("Server received data:", data)
+                msg = data.decode("utf-8")
+                print('Decrypted: %s' % JsonToPlaintext(msg))
+
             except Exception as e:
                 print(e)
                 break
             sleep(0.25)
 
-TCP_IP = "192.168.43.85"
+
+TCP_IP = "192.168.0.100"
 TCP_PORT = 2004
 BUFFER_SIZE = 20
 

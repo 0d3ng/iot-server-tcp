@@ -88,9 +88,9 @@ def JsonToPlaintext(esp8266_json):
     except Exception as e:
         print('Json，data:{},error：{}'.format(esp8266_data, e))
         return
-    iv = base64.b64decode(esp8266_data['iv'])  # base64解码
+    iv = base64.b64decode(esp8266_data['iv'])  # base64
     cipher = AESEncrypter(bytes.fromhex(AES128_key), iv)
-    return cipher.decrypt(esp8266_data['msg'])  # 已验证
+    return cipher.decrypt(esp8266_data['msg'])
 
 
 def PlaintextToJson(Plaintext):
