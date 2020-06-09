@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# python -m pip install pycryptodome
+# python -m pip install pycrypto
 
 """
 @version: v1.0
