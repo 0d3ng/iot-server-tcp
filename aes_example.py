@@ -118,15 +118,14 @@ if __name__ == "__main__":
     try:
         # for AES test
 
-        print('解密测试：')
-        # esp8266_data = '{"iv":"AAAAAAAAAAAAAAAAAAAAAA==","msg":"VyIOXsJw4/wu18rfsOuWES2PRIcEmd/d2YBO8uf4GWI="}'
+        print('decrypt：')
         esp8266_data = '{"iv":"E9Mhq/WDtSZkrfGhHDJSRg==","msg":"XHao0wiSLEwegeKIIfmd6YprWYn4tAKjBHE3zKM9P9I="}'
-        print('密文: %s' % esp8266_data)
+        print('data: %s' % esp8266_data)
         print('Decrypted: %s' % JsonToPlaintext(esp8266_data))
 
         #####################################################################
 
-        print('加密测试：')
+        print('encrypt：')
         msg = 'Hello Word Hello Word'
         print('esp8266 json: %s' % PlaintextToJson(msg))
 
